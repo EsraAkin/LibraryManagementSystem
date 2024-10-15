@@ -10,7 +10,11 @@ public class Library {
         users = new ArrayList<>();
     }
 
-    // Kütüphanede kalan kitapları gösteren metod
+    public void addUser(User user) {
+        users.add(user);
+        System.out.println(user.getName() + " added to the library system.");
+    }
+
     public void showAvailableBooks() {
         if (libraryBooks.isEmpty()) {
             System.out.println("No books available in the library.");
@@ -20,11 +24,6 @@ public class Library {
                 System.out.println(book);
             }
         }
-    }
-
-    public void addUser(User user) {
-        users.add(user);
-        System.out.println(user.getName() + " added to the library system.");
     }
 
     public List<Book> getLibraryBooks() {

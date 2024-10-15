@@ -10,33 +10,28 @@ public class User {
         this.borrowedBooks = new ArrayList<>();
     }
 
-    // Kitap ödünç alma işlemi
     public void borrowBook(Book book, List<Book> libraryBooks) {
         if (libraryBooks.contains(book)) {
             borrowedBooks.add(book);
-            libraryBooks.remove(book);  // Kitap kütüphaneden kaldırılıyor
+            libraryBooks.remove(book);
             System.out.println(name + " borrowed " + book.getTitle());
         } else {
-            System.out.println(book.getTitle() + " is not available.");
+            System.out.println("This book is not available.");
         }
     }
 
-    // Kitap iade etme işlemi
     public void returnBook(Book book, List<Book> libraryBooks) {
         if (borrowedBooks.contains(book)) {
             borrowedBooks.remove(book);
-            libraryBooks.add(book);  // Kitap tekrar kütüphaneye ekleniyor
+            libraryBooks.add(book);
             System.out.println(name + " returned " + book.getTitle());
         } else {
-            System.out.println(name + " did not borrow this book.");
+            System.out.println(name + " does not have this book.");
         }
     }
 
-    public void showBorrowedBooks() {
-        System.out.println(name + " borrowed the following books:");
-        for (Book book : borrowedBooks) {
-            System.out.println(book);
-        }
+    public List<Book> getBorrowedBooks() {
+        return borrowedBooks;
     }
 
     public String getName() {
